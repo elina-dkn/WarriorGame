@@ -33,4 +33,8 @@ int main()
 	cout << "Bytes used: " << sa->GetBytesUsed() << " Content: " << file1 << endl;
 	
 	delete sa;
+
+
+
+
 }

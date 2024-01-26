@@ -8,8 +8,8 @@
 
 int main()
 {
-	ObjectPool<Resource>* objP = new ObjectPool<Resource>();
-	Resource* r1 = objP->GetResource();
+	Resource::Pool = new ObjectPool<Resource>();
+	Resource* r1 = Resource::Pool->GetResource();
 	r1->AssignNonDefaultValues();
 
 	ofstream writeSttream("resource.bin", ios::out | ios::binary);
@@ -19,12 +19,12 @@ int main()
 	r1->ToString();
 
 
-	Resource* r2 = objP->GetResource();
+	Resource* r2 = Resource::Pool->GetResource();
 	ifstream readSttream("resource.bin", ios::in | ios::binary);
 	r2->Deserialize(readSttream);
 	readSttream.close();
 	cout << "r2 values: ";
 	r2->ToString();
 
-	delete objP;
+	delete Resource::Pool;
 }

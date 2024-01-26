@@ -10,7 +10,7 @@ public:
 		return instance;
 	}
 protected:
-	Singleton() {};
+	Singleton() {}
 	virtual ~Singleton() {}
 public:
 	Singleton(Singleton const&) = delete;

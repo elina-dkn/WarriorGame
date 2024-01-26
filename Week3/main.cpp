@@ -3,38 +3,28 @@
 
 #include "FileController.h"
 #include "StackAllocator.h"
+#include "ObjectPool.h"
+#include "Resource.h"
 
 int main()
 {
-	FileController* fc = &FileController::Instance();
-	StackAllocator* sa = new StackAllocator();
-	sa->AllocateStack(10000);
+	ObjectPool<Resource>* objP = new ObjectPool<Resource>();
+	Resource* r1 = objP->GetResource();
+	r1->AssignNonDefaultValues();
 
-	
-	int fs1 = fc->GetFileSize("Text1.txt");
-	unsigned char* file1 = sa->GetMemory(fs1);
-	fc->ReadFile("Text1.txt", file1, fs1);
-	cout << file1 << endl;
-
-	int fs2 = fc->GetFileSize("Text2.txt");
-	unsigned char* file2 = sa->GetMemory(fs2);
-	fc->ReadFile("Text2.txt", file2, fs2);
-	sa->Mark();
-	cout << file2 << endl;
-
-	int fs3 = fc->GetFileSize("Text3.txt");
-	unsigned char* file3 = sa->GetMemory(fs3);
-	fc->ReadFile("Text3.txt", file3, fs3);
-	cout << file3 << endl;
-
-	cout << "Bytes used: " << sa->GetBytesUsed() << " Content: " << file1 << endl;
-	sa->FreeToMarker();
-	cout << file1 << endl;
-	cout << "Bytes used: " << sa->GetBytesUsed() << " Content: " << file1 << endl;
-	
-	delete sa;
+	ofstream writeSttream("resource.bin", ios::out | ios::binary);
+	r1->Serialize(writeSttream);
+	writeSttream.close();
+	cout << "r1 values: ";
+	r1->ToString();
 
 
+	Resource* r2 = objP->GetResource();
+	ifstream readSttream("resource.bin", ios::in | ios::binary);
+	r2->Deserialize(readSttream);
+	readSttream.close();
+	cout << "r2 values: ";
+	r2->ToString();
 
-
+	delete objP;
 }

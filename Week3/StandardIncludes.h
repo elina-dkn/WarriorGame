@@ -7,6 +7,7 @@
 #include <cinttypes>
 #include <stdio.h>
 #include <thread>
+#include <fstream>
 
 #include "Singleton.h"
 

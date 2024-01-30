@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <thread>
 #include <fstream>
+#include <map>
 
 #include "Singleton.h"
 

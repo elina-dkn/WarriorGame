@@ -33,22 +33,24 @@ void Level::Serialize(std::ostream& _stream) {
 	_stream.write(reinterpret_cast<char*>(&m_mapSizeY), sizeof(m_mapSizeY));
 	_stream.write(reinterpret_cast<char*>(&m_gameTime), sizeof(m_gameTime));
 
-
-
 	SerializePointer(_stream, m_unit);
 	Resource::Serialize(_stream);
 }
 
 void Level::Deserialize(std::istream& _stream) {
-
-
+	_stream.read(reinterpret_cast<char*>(&m_mapSizeX), sizeof(m_mapSizeX));
+	_stream.read(reinterpret_cast<char*>(&m_mapSizeY), sizeof(m_mapSizeY));
+	_stream.read(reinterpret_cast<char*>(&m_gameTime), sizeof(m_gameTime));
 
 	DeserializePointer(_stream, m_unit);
 	Resource::Deserialize(_stream);
 }
 
 void Level::ToString() {
-	cout << "UNIT" << endl;
-	m_soundEffect->ToString();
+	cout << "LEVEL" << endl;
+	cout << "MapSizeX: " << m_mapSizeX <<endl;
+	cout << "MapSizeY: "<< m_mapSizeY<< endl;
+	cout << "GameTime: " << m_gameTime<< endl;
+	m_unit->ToString();
 	Resource::ToString();
 }

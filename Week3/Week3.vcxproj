@@ -130,6 +130,7 @@
     <ClCompile Include="Asset.cpp" />
     <ClCompile Include="AssetController.cpp" />
     <ClCompile Include="FileController.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ObjectPool.cpp" />
     <ClCompile Include="Resource.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="Asset.h" />
     <ClInclude Include="AssetController.h" />
     <ClInclude Include="FileController.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Serializable.h" />

@@ -33,7 +33,7 @@ protected:
 
 	}
 	template<class T>
-	void DeserializePointer(std::istream& _stream, Resource*& _pointer) {
+	void DeserializePointer(std::istream& _stream, T*& _pointer) {
 		byte exists = 0;
 		_stream.read(reinterpret_cast<char*>(&exists), sizeof(exists));
 

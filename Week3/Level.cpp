@@ -29,7 +29,9 @@ void Level::AssignNonDefaultValues() {
 }
 
 void Level::Serialize(std::ostream& _stream) {
-
+	_stream.write(reinterpret_cast<char*>(&m_mapSizeX), sizeof(m_mapSizeX));
+	_stream.write(reinterpret_cast<char*>(&m_mapSizeY), sizeof(m_mapSizeY));
+	_stream.write(reinterpret_cast<char*>(&m_gameTime), sizeof(m_gameTime));
 
 
 
@@ -38,6 +40,9 @@ void Level::Serialize(std::ostream& _stream) {
 }
 
 void Level::Deserialize(std::istream& _stream) {
+
+
+
 	DeserializePointer(_stream, m_unit);
 	Resource::Deserialize(_stream);
 }

@@ -19,7 +19,7 @@ private:
 	int m_mapSizeX;
 	int m_mapSizeY;
 	float m_gameTime;
-	Unit* m_unit;
+	vector<Unit*> m_units;
 
 };
 

@@ -134,7 +134,9 @@
     <ClCompile Include="ObjectPool.cpp" />
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="Serializable.cpp" />
+    <ClCompile Include="SoundEffect.cpp" />
     <ClCompile Include="StackAllocator.cpp" />
+    <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asset.h" />
@@ -144,8 +146,10 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Serializable.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="SoundEffect.h" />
     <ClInclude Include="StackAllocator.h" />
     <ClInclude Include="StandardIncludes.h" />
+    <ClInclude Include="Unit.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text1.txt" />

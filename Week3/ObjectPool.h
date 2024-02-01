@@ -11,7 +11,7 @@ public:
 	ObjectPool() {}
 	virtual ~ObjectPool() {
 		for (unsigned int count = 0; count < m_all.size(); count++) {
-			cout << "Deleting pool object" << endl;
+			cout << "Deleting pool object: " <<typeid(T).name() << endl;
 			delete m_all[count];
 		}
 		m_all.clear();
@@ -19,13 +19,13 @@ public:
 	}
 	T* GetResource() {
 		if (m_available.empty()) {
-			cout << "Creating new pool object\n";
+			cout << "Creating new pool object: " << typeid(T).name() << endl;
 			T* resource = new T();
 			m_all.push_back(resource);
 			return resource;
 		}
 		else {
-			cout << "Reusing existing.\n";
+			cout << "Reusing existing: " << typeid(T).name() << endl;
 			T* resource = m_available[0];
 			m_available.erase(m_available.begin());
 			return resource;
@@ -33,7 +33,7 @@ public:
 	}
 
 	void ReleaseResource(T* _object) {
-		//_object->Reset();
+		_object->Reset();
 		m_available.push_back(_object);
 	}
 

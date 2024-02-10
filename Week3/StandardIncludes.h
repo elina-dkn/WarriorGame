@@ -9,6 +9,7 @@
 #include <thread>
 #include <fstream>
 #include <map>
+#include <SDL.h>
 
 #include "Singleton.h"
 

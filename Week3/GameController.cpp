@@ -5,7 +5,7 @@ GameController::GameController(){}
 
 GameController::~GameController() {}
 
-GameController::RundGame() {
+void GameController::RundGame() {
 	Renderer* r = &Renderer::Instance();
 	r->Inititlaize(800, 600);
 

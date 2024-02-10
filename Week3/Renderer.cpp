@@ -37,3 +37,27 @@ void Renderer::SetDrawColor(Color _color) {
 void Renderer::ClearScreen() {
 	SDL_RenderClear(m_renderer);
 }
+
+void Renderer::RenderPoint(Point _point) {
+	SDL_RenderDrawPoint(m_renderer, _point.X, _point.Y);
+}
+
+void Renderer::RenderLine(Rect _point) {
+	SDL_RenderDrawLine(m_renderer, _point.X1, _point.Y1, _point.X2, _point.Y2);
+}
+
+void Renderer::RenderRectangle(Rect _point) {
+	m_destRect.x = _point.X1;
+	m_destRect.y = _point.Y1;
+	m_destRect.w = _point.X2 - _point.X1;
+	m_destRect.h = _point.Y2 - _point.Y1;
+	SDL_RenderDrawRect(m_renderer, &m_destRect);
+}
+
+void Renderer::RenderFillRectangle(Rect _point) {
+	m_destRect.x = _point.X1;
+	m_destRect.y = _point.Y1;
+	m_destRect.w = _point.X2 - _point.X1;
+	m_destRect.h = _point.Y2 - _point.Y1;
+	SDL_RenderFillRect(m_renderer, &m_destRect);
+}

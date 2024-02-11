@@ -1,9 +1,11 @@
 #include "Renderer.h"
+#include "Asset.h"
 
 Renderer::Renderer() {
 	m_window = nullptr;
 	m_renderer = nullptr;
 	m_destRect = {};
+	m_surface = nullptr;
 }
 
 Renderer::~Renderer() {
@@ -20,6 +22,10 @@ void Renderer::Inititlaize(int _xResolution, int _yResolution) {
 }
 
 void Renderer::Shutdown() {
+	for (auto it = m_textures.begin(); it != m_textures.end(); it++) {
+		SDL_DestroyTexture(it->second);
+	}
+	m_textures.clear();
 	if (m_renderer != nullptr) {
 		SDL_DestroyRenderer(m_renderer);
 	}
@@ -60,4 +66,32 @@ void Renderer::RenderFillRectangle(Rect _point) {
 	m_destRect.w = _point.X2 - _point.X1;
 	m_destRect.h = _point.Y2 - _point.Y1;
 	SDL_RenderFillRect(m_renderer, &m_destRect);
+}
+
+
+SDL_Texture* Renderer::GetSDLTexture(Texture* _texture) {
+	Asset* asset = _texture->GetData();
+	string guid = asset->GetGUID();
+	if (m_textures.count(guid) != 0) {
+		return m_textures[guid];
+	}
+
+	ImageInfo* ii = _texture->GetImageInfo();
+	m_surface = SDL_CreateRGBSurfaceFrom(asset->GetData() + _texture->GetImageInfo()->DataOffset, ii->Width, ii->Height, ii->BitsPerPixel,
+		ii->Width * ii->BitsPerPixel / 8, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000);
+	SDL_Texture* texture = SDL_CreateTextureFromSurface(m_renderer, m_surface);
+	SDL_FreeSurface(m_surface);
+	m_surface = nullptr;
+	m_textures[guid] = texture;
+	return texture;
+}
+
+void Renderer::RenderTexture(Texture* _texture, Point _point) {
+	m_destRect.x = _point.X;
+	m_destRect.y = _point.Y;
+	m_destRect.w = _texture->GetImageInfo()->Width;
+	m_destRect.h = _texture->GetImageInfo()->Height;
+
+	M_ASSERT(((SDL_RenderCopyEx(m_renderer, GetSDLTexture(_texture),
+		NULL, &m_destRect, 0, NULL, SDL_FLIP_VERTICAL)) >= 0), "Could not render texture");
 }

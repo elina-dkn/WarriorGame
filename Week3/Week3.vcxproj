@@ -167,12 +167,12 @@
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ObjectPool.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Resource.cpp" />
-    <ClCompile Include="Serializable.cpp" />
     <ClCompile Include="SoundEffect.cpp" />
     <ClCompile Include="StackAllocator.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TGAReader.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -189,12 +189,9 @@
     <ClInclude Include="SoundEffect.h" />
     <ClInclude Include="StackAllocator.h" />
     <ClInclude Include="StandardIncludes.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TGAReader.h" />
     <ClInclude Include="Unit.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Text1.txt" />
-    <Text Include="Text2.txt" />
-    <Text Include="Text3.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

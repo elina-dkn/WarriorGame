@@ -22,7 +22,7 @@ void GameController::RundGame() {
 		r->ClearScreen();
 		for (unsigned int count = 0; count < 6; count++) {
 			unsigned int xPos = count * 69;
-			r->RenderTexture(texture, Rect(xPos, 0, xPos+69, 44), Rect(xPos, 100, xPos+69, 144));
+			r->RenderTexture(texture, Rect(xPos, 0, xPos+69, 44), Rect(xPos, 100, xPos+69*2, 100 + 44*2));
 		}
 
 		/*r->SetViewport(Rect(0, 0, ws.X/2, ws.Y/2));

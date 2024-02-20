@@ -12,7 +12,7 @@ void TGAReader::ProcessAsset(Asset* _rawTGA, ImageInfo* _imageInfo) {
 
 	
 	M_ASSERT((m_header.DataTypeCode == 2), "Can only handle image type 2");
-	M_ASSERT((m_header.BitsPerPixel == 0 || m_header.BitsPerPixel == 32), "Can only handle 32 or 24 pixels");
+	M_ASSERT((m_header.BitsPerPixel == 24 || m_header.BitsPerPixel == 32), "Can only handle 32 or 24 pixels");
 	M_ASSERT((m_header.ColourMapType == 0), "Can only handle colour map type 0");
 
 	int dataOffset = sizeof(TGAHeader);

@@ -55,6 +55,7 @@ public:
 	Point GetWindowSize();
 	void SetViewport(Rect _viewport);
 	void RenderTexture(Texture* _texture, Rect _rect);
+	void RenderTexture(Texture* _texture, Rect _srcRect, Rect _destRect);
 	void SetDrawColor(Color _color);
 	void ClearScreen();
 	void Shutdown();
@@ -67,6 +68,7 @@ public:
 private:
 	SDL_Window* m_window;
 	SDL_Renderer* m_renderer;
+	SDL_Rect m_srcRect;
 	SDL_Rect m_destRect;
 	SDL_Surface* m_surface;
 	SDL_Rect m_viewPort;

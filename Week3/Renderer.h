@@ -52,6 +52,9 @@ public:
 	SDL_Texture* GetSDLTexture(Texture* _texture);
 
 	void Inititlaize(int _xResolution, int _yResolution);
+	Point GetWindowSize();
+	void SetViewport(Rect _viewport);
+	void RenderTexture(Texture* _texture, Rect _rect);
 	void SetDrawColor(Color _color);
 	void ClearScreen();
 	void Shutdown();
@@ -66,6 +69,7 @@ private:
 	SDL_Renderer* m_renderer;
 	SDL_Rect m_destRect;
 	SDL_Surface* m_surface;
+	SDL_Rect m_viewPort;
 	map<string, SDL_Texture*> m_textures;
 };
 

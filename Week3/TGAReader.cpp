@@ -19,14 +19,10 @@ void TGAReader::ProcessAsset(Asset* _rawTGA, ImageInfo* _imageInfo) {
 	dataOffset += m_header.IDLength;
 	dataOffset += m_header.ColourMapType * m_header.ColourMapLength;
 
-	_imageInfo->Width = 512;
-	_imageInfo->Height = 512;
-	_imageInfo->BitsPerPixel = 32;
 
-
-	/*_imageInfo->Width = m_header.Width;
+	_imageInfo->Width = m_header.Width;
 	_imageInfo->Height = m_header.Height;
-	_imageInfo->BitsPerPixel = m_header.BitsPerPixel;*/
+	_imageInfo->BitsPerPixel = m_header.BitsPerPixel;
 	_imageInfo->DataOffset = dataOffset;
 }
 

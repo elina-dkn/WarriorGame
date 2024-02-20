@@ -3,7 +3,7 @@
 #include "StandardIncludes.h"
 
 class Asset;
-#pragma back(push, 1)
+#pragma pack(push, 1)
 typedef struct {
 	char IDLength;
 	char ColourMapType;

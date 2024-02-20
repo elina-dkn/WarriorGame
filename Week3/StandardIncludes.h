@@ -1,6 +1,6 @@
 #ifndef STANDARD_INCLUDES_H
 #define STANDARD_INCLUDES_H
-//#define SLD_MAIN_HANDELED
+//#define SLD_MAIN_HANDLED
 
 #include <string>
 #include <vector>

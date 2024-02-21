@@ -15,6 +15,7 @@
 
 
 #include "Singleton.h"
+#include "BasicStructs.h"
 
 #ifdef _WIN32
 #include <Windows.h>

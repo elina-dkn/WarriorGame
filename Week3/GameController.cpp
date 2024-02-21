@@ -25,6 +25,14 @@ void GameController::RundGame() {
 	sheet->Serialize(writeStream);
 	writeStream.close();
 
+
+	delete SpriteAnim::Pool;
+	delete SpriteSheet::Pool;
+	AssetController::Instance().Clear();
+	AssetController::Instance().Initialize(1000000000);
+	SpriteSheet::Pool = new ObjectPool<SpriteSheet>();
+	SpriteAnim::Pool = new ObjectPool<SpriteAnim>();
+
 	SpriteSheet* sheet2 = SpriteSheet::Pool->GetResource();
 	ifstream readStream("resource.bin", ios::in | ios::binary);
 	sheet2->Deserialize(readStream);

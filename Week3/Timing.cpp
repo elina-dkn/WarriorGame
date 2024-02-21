@@ -7,6 +7,7 @@ Timing::Timing() {
 	m_fpsCount = 0;
 	m_fpsLast = 0;
 	m_deltaTime = 0;
+	
 }
 
 void Timing::Tick() {

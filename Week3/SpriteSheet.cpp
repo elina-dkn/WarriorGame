@@ -21,9 +21,9 @@ void SpriteSheet::SetSize(byte _rows, byte _columns, byte _sizeX, byte _sizeY) {
 	m_clipSizeY = _sizeY;
 }
 
-void SpriteSheet::AddAnimation(AnimationNames _name, short _clipStart, short _clipCount, float _clipSpeed) {
+void SpriteSheet::AddAnimation(AnimationNames _name, short _clipStart, short _clipCount, float _clipSpeed, int _speed) {
 	SpriteAnim* anim = SpriteAnim::Pool->GetResource();
-	anim->Create(_clipStart, _clipCount, _clipSpeed);
+	anim->Create(_clipStart, _clipCount, _clipSpeed, _speed);
 	m_animations[_name] = anim;
 }
 

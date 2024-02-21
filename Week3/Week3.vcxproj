@@ -164,10 +164,13 @@ copy /Y "$(SolutionDir)External\SDL2_ttf-2.22.0\lib\x86\SDL2_ttf.dll" "$(TargetD
   <ItemGroup>
     <ClCompile Include="Asset.cpp" />
     <ClCompile Include="AssetController.cpp" />
+    <ClCompile Include="BaseLevel.cpp" />
     <ClCompile Include="FileController.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Level1.cpp" />
+    <ClCompile Include="Level2.cpp" />
+    <ClCompile Include="Level_1.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Resource.cpp" />
@@ -184,11 +187,14 @@ copy /Y "$(SolutionDir)External\SDL2_ttf-2.22.0\lib\x86\SDL2_ttf.dll" "$(TargetD
   <ItemGroup>
     <ClInclude Include="Asset.h" />
     <ClInclude Include="AssetController.h" />
+    <ClInclude Include="BaseLevel.h" />
     <ClInclude Include="BasicStructs.h" />
     <ClInclude Include="FileController.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Level1.h" />
+    <ClInclude Include="Level2.h" />
+    <ClInclude Include="Level_1.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Resource.h" />

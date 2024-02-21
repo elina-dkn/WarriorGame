@@ -16,7 +16,7 @@ public:
 	void ToString() override;
 	
 	void ClearMemory();
-	void Create(short _clipStart, short _clipCount, float _clipSpeed);
+	void Create(short _clipStart, short _clipCount, float _clipSpeed, int m_speed);
 	void Update(float _deltaTime);
 
 	static ObjectPool<SpriteAnim>* Pool;
@@ -27,6 +27,7 @@ private:
 	short m_clipEnd;
 	float m_clipCurrent;
 	float m_clipSpeed;
+	int m_speed;
 };
 
 #endif

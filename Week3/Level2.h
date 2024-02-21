@@ -1,13 +1,13 @@
-#ifndef LEVEL1_H
-#define LEVEL1_H
+#ifndef LEVEL2_H
+#define LEVEL2_H
 
 #include "Level.h"
 
-class Level1 : public Level
+class Level2 : public Level
 {
 public:
-	Level1();
-	virtual ~Level1();
+	Level2();
+	virtual ~Level2();
 
 	void Serialize(std::ostream& _stream) override;
 	void Deserialize(std::istream& _stream) override;
@@ -26,7 +26,7 @@ private:
 	Renderer* r;
 	Timing* t;
 	TTFont* font;
-	
+
 
 };
 

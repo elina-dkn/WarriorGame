@@ -72,6 +72,9 @@
     <ClCompile Include="SpriteSheet.cpp">
       <Filter>Source Files\Core\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="TTFont.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SoundEffect.h">
@@ -130,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="SpriteSheet.h">
       <Filter>Header Files\Core\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="TTFont.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

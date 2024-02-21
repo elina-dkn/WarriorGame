@@ -1,7 +1,7 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
-#include "Unit.h"
+#include "SpriteSheet.h"
 class Level : public Resource
 {
 public:
@@ -12,14 +12,14 @@ public:
 	void Deserialize(std::istream& _stream) override;
 	void ToString() override;
 	void AssignNonDefaultValues() override;
+	virtual void Render();
 
 	
 
 private:
-	int m_mapSizeX;
-	int m_mapSizeY;
 	float m_gameTime;
-	vector<Unit*> m_units;
+	SpriteSheet* m_warrior;
+	SpriteSheet* m_rock;
 
 };
 

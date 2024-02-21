@@ -3,6 +3,7 @@
 #include "SpriteSheet.h"
 #include "TTFont.h"
 #include "Timing.h"
+#include "Level1.h"
 
 
 GameController::GameController(){}
@@ -13,20 +14,19 @@ void GameController::RundGame() {
 	AssetController::Instance().Initialize(1000000000);
 	Renderer* r = &Renderer::Instance();
 	Timing* t = &Timing::Instance();
-	r->Inititlaize(800, 600);
-
+	r->Inititlaize(1920, 1080);
 	TTFont* font = new TTFont();
 	font->Initialize(20);
 
-	Point ws = r->GetWindowSize();
+	Level1* level = new Level1();
+	level->AssignNonDefaultValues();
 
+	
 	SpriteSheet::Pool = new ObjectPool<SpriteSheet>();
 	SpriteAnim::Pool = new ObjectPool<SpriteAnim>();
-	SpriteSheet* sheet = SpriteSheet::Pool->GetResource();
-	sheet->Load("../Assets/Textures/Warrior.tga");
-	sheet->SetSize(17, 6, 69, 44);
-	sheet->AddAnimation(EN_AN_IDLE, 0, 6, 6.0f);
-	sheet->AddAnimation(EN_AN_RUN, 6, 8, 6.0f);
+	//SpriteSheet* sheet = SpriteSheet::Pool->GetResource();
+	SpriteSheet* sheet = level->GetWarrior();
+
 
 	/*ofstream writeStream("resource.bin", ios::out | ios::binary);
 	sheet->Serialize(writeStream);
@@ -52,8 +52,11 @@ void GameController::RundGame() {
 		//r->SetViewport(Rect(0, 0, ws.X, ws.Y));
 		r->SetDrawColor(Color(255, 255, 255, 255));
 		r->ClearScreen();
-		r->RenderTexture(sheet, sheet->Update(EN_AN_IDLE, t->GetDeltaTime()), Rect(0, 0, 69*3, 44*3));
-		r->RenderTexture(sheet, sheet->Update(EN_AN_RUN, t->GetDeltaTime()), Rect(0, 150, 69 * 3,150+ 44 * 3));
+		//r->RenderTexture(sheet, sheet->Update(EN_AN_IDLE, t->GetDeltaTime()), Rect(0, 0, 69*3, 44*3));
+		for (int i = 0; i < 10; i++) {
+			r->RenderTexture(sheet, sheet->Update(EN_AN_RUN, t->GetDeltaTime()), Rect(0, 10 + i*100, 69 * 3, 10 + i * 100 + 44 * 3));
+		}
+		
 		//font->Write(r->GetRenderer(), "Testing 123!!", SDL_Color{ 0, 255, 0 }, SDL_Point{ 150, 50 });
 		/*r->SetViewport(Rect(0, 0, ws.X/2, ws.Y/2));
 		r->RenderTexture(texture, Point(0, 0));

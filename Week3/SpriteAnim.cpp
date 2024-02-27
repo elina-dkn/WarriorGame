@@ -30,6 +30,12 @@ void SpriteAnim::Update(float _deltaTime) {
 		m_clipCurrent = m_clipStart;
 	}
 }
+void SpriteAnim::UpdateFinal(float _deltaTime) {
+	m_clipCurrent += m_clipSpeed * _deltaTime;
+	if (m_clipCurrent > m_clipEnd) {
+		m_clipCurrent = m_clipEnd;
+	}
+}
 
 void SpriteAnim::Serialize(std::ostream& _stream) {
 	_stream.write(reinterpret_cast<char*>(&m_clipStart), sizeof(m_clipStart));

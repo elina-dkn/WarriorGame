@@ -11,7 +11,8 @@ public:
 	unsigned int GetFPS() { return m_fpsLast; }
 	float GetDeltaTime() { return m_deltaTime; }
 	float GetTime() { return (SDL_GetTicks())/1000.0f; }
-
+	void SetLevelTime(float _time) { m_levelTime = _time; }
+	float GetLevelTime() { return m_levelTime; }
 	void Tick();
 
 private:
@@ -21,6 +22,7 @@ private:
 	unsigned int m_fpsCount;
 	unsigned int m_fpsLast;
 	float m_deltaTime;
+	float m_levelTime;
 	
 
 

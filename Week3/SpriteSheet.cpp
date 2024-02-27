@@ -32,10 +32,16 @@ Rect SpriteSheet::Update(AnimationNames _name, float _deltaTime) {
 	short posX = s % m_columns * m_clipSizeX;
 	short posY = s / m_columns * m_clipSizeY;
 	Rect r = Rect(posX, posY, posX + m_clipSizeX, posY + m_clipSizeY);
-
-	m_animations[_name]->Update(_deltaTime);
+	if (_name == EN_AN_DEATH) {
+		m_animations[_name]->UpdateFinal(_deltaTime);
+	}
+	else {
+		m_animations[_name]->Update(_deltaTime);
+	}
+	
 	return r;
 }
+
 
 
 void SpriteSheet::Serialize(std::ostream& _stream) {

@@ -36,9 +36,6 @@
     <ClCompile Include="Unit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Level.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -78,16 +75,13 @@
     <ClCompile Include="Timing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Level1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Level2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BaseLevel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Level_1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Level_2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -96,9 +90,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Unit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Level.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameController.h">
@@ -155,16 +146,13 @@
     <ClInclude Include="Timing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Level1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Level2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BaseLevel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Level_1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Level_2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

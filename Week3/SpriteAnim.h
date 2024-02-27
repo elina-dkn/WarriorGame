@@ -18,6 +18,8 @@ public:
 	void ClearMemory();
 	void Create(short _clipStart, short _clipCount, float _clipSpeed, int m_speed);
 	void Update(float _deltaTime);
+	void UpdateFinal(float _deltaTime);
+
 
 	static ObjectPool<SpriteAnim>* Pool;
 
